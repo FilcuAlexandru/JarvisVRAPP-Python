@@ -88,7 +88,9 @@ docker build -t jarvis-app .
 docker run -it --rm jarvis-app
 ```
 
-## Creating a Windows Executable for JarvisVRApp
+## For Windows Use
+
+Creating a Windows Executable for JarvisVRApp
 
 To distribute JarvisVRApp as a standalone executable for Windows users, you can use PyInstaller, a popular Python packaging tool. PyInstaller bundles your Python application and its dependencies into a single executable file, making it easy to run on Windows systems without needing to install Python separately.
 
