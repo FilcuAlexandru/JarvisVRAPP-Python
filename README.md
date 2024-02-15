@@ -90,7 +90,7 @@ docker run -it --rm jarvis-app
 
 ## For Windows Use 
 
-Perform outside the container!
+To be performed outside the container!
 
 Creating a Windows Executable for JarvisVRApp
 
