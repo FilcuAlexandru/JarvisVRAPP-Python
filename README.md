@@ -88,7 +88,9 @@ docker build -t jarvis-app .
 docker run -it --rm jarvis-app
 ```
 
-## For Windows Use
+## For Windows Use 
+
+Perform outside the container!
 
 Creating a Windows Executable for JarvisVRApp
 
