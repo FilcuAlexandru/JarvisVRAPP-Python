@@ -1,5 +1,8 @@
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLineEdit, QPushButton, QMessageBox, QTextEdit, QInputDialog
+from PyQt5.QtGui import QFont
+from PyQt5.QtGui import QTextOption
 from PyQt5.QtCore import Qt
+
 
 # Define a dictionary containing meal options and recipes
 meals = {
@@ -52,16 +55,33 @@ class RecipeDialog(QDialog):
         super().__init__()
         self.setWindowTitle("Explore Recipes")
         layout = QVBoxLayout(self)
+        layout.setContentsMargins(40, 40, 40, 40)
+
+        font = QFont("Roboto", 12, QFont.Normal)
 
         self.meal_field = QLineEdit()
+        self.meal_field.setFont(font)
         self.meal_field.setPlaceholderText("Enter your meal choice (breakfast, lunch, or dinner)")
+        self.meal_field.setStyleSheet(
+            "QLineEdit { border: 2px solid #CCCCCC; border-radius: 10px; padding: 10px; }"
+            "QLineEdit:focus { border-color: #007AFF; }"
+        )
         layout.addWidget(self.meal_field)
 
         self.explore_button = QPushButton("Explore Recipes")
+        self.explore_button.setFont(font)
+        self.explore_button.setStyleSheet(
+            "QPushButton { background-color: #007AFF; color: white; border-radius: 10px; padding: 10px; }"
+            "QPushButton:hover { background-color: #0056B3; }"
+        )
         self.explore_button.clicked.connect(self.explore_recipes)
         layout.addWidget(self.explore_button)
 
         self.recipe_text = QTextEdit()
+        self.recipe_text.setFont(font)
+        self.recipe_text.setReadOnly(True)  # Set QTextEdit to read-only
+        self.recipe_text.setWordWrapMode(QTextOption.WrapMode.WrapAnywhere)  # Enable word wrap
+        self.recipe_text.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)  # Enable vertical scrollbar as needed
         layout.addWidget(self.recipe_text)
 
     def explore_recipes(self):

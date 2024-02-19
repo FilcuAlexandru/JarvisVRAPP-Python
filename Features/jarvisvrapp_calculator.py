@@ -12,18 +12,23 @@ class CalculatorDialog(QDialog):
 
         grid_layout = QGridLayout()
         buttons = [
-            ("C", self.clear), ("/", lambda: self.add_to_expression("/")),
-            ("7", lambda: self.add_to_expression(7)), ("8", lambda: self.add_to_expression(8)), ("9", lambda: self.add_to_expression(9)), ("*", lambda: self.add_to_expression("*")),
-            ("4", lambda: self.add_to_expression(4)), ("5", lambda: self.add_to_expression(5)), ("6", lambda: self.add_to_expression(6)), ("-", lambda: self.add_to_expression("-")),
-            ("1", lambda: self.add_to_expression(1)), ("2", lambda: self.add_to_expression(2)), ("3", lambda: self.add_to_expression(3)), ("+", lambda: self.add_to_expression("+")),
-            ("0", lambda: self.add_to_expression(0)), (".", lambda: self.add_to_expression(".")), ("=", self.calculate),
-            ("√", self.sqrt), ("^2", self.square), ("%", self.modulo)
+            ("C", self.clear, "#FF6F61"), ("/", lambda: self.add_to_expression("/"), "#6B5B95"),
+            ("7", lambda: self.add_to_expression(7), "#88B04B"), ("8", lambda: self.add_to_expression(8), "#F7CAC9"),
+            ("9", lambda: self.add_to_expression(9), "#92A8D1"), ("*", lambda: self.add_to_expression("*"), "#955251"),
+            ("4", lambda: self.add_to_expression(4), "#B565A7"), ("5", lambda: self.add_to_expression(5), "#009B77"),
+            ("6", lambda: self.add_to_expression(6), "#F89A9D"), ("-", lambda: self.add_to_expression("-"), "#3B3B98"),
+            ("1", lambda: self.add_to_expression(1), "#C70039"), ("2", lambda: self.add_to_expression(2), "#FF5733"),
+            ("3", lambda: self.add_to_expression(3), "#FFC300"), ("+", lambda: self.add_to_expression("+"), "#DAF7A6"),
+            ("0", lambda: self.add_to_expression(0), "#7FB3D5"), (".", lambda: self.add_to_expression("."), "#FF5733"),
+            ("=", self.calculate, "#9A9A9A"),
+            ("√", self.sqrt, "#D6A2E8"), ("^2", self.square, "#83C5BE"), ("%", self.modulo, "#E6B0AA")
         ]
 
         positions = [(i, j) for i in range(6) for j in range(4)]
 
-        for position, (text, func) in zip(positions, buttons):
+        for position, (text, func, color) in zip(positions, buttons):
             button = QPushButton(text)
+            button.setStyleSheet(f"QPushButton {{ background-color: {color}; border-radius: 25px; font-size: 24px; }}")
             button.clicked.connect(func)
             grid_layout.addWidget(button, *position)
 

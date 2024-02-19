@@ -15,8 +15,8 @@ class MusicPlayer:
 
         # Add the path to your favorite songs
         playlist = [
-            # r"C:\Users\,
-            # r"C:\Users\,
+            r"C:\Users\alexandru.filcu\Downloads\Y2meta.app - Mylo Vs Miami Sound Machine - Doctor Pressure (128 kbps).mp3",
+            r"C:\Users\alexandru.filcu\Downloads\Y2meta.app - Cargo - Aproape De Voi (128 kbps).mp3"
             # Add more songs as needed
         ]
 

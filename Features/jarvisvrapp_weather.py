@@ -1,4 +1,7 @@
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLineEdit, QPushButton, QMessageBox, QTextEdit
+from PyQt5.QtGui import QFont
+from PyQt5.QtGui import QTextOption
+
 import requests
 from datetime import datetime
 
@@ -7,16 +10,30 @@ class WeatherDialog(QDialog):
         super().__init__()
         self.setWindowTitle("Check Weather")
         layout = QVBoxLayout(self)
+        layout.setContentsMargins(40, 40, 40, 40)
+
+        font = QFont("Roboto", 12, QFont.Normal)
 
         self.city_field = QLineEdit()
+        self.city_field.setFont(font)
         self.city_field.setPlaceholderText("Enter the name of the city")
+        self.city_field.setStyleSheet(
+            "QLineEdit { border: 2px solid #CCCCCC; border-radius: 10px; padding: 10px; }"
+            "QLineEdit:focus { border-color: #007AFF; }"
+        )
         layout.addWidget(self.city_field)
 
         self.check_button = QPushButton("Check Weather")
+        self.check_button.setFont(font)
+        self.check_button.setStyleSheet(
+            "QPushButton { background-color: #007AFF; color: white; border-radius: 10px; padding: 10px; }"
+            "QPushButton:hover { background-color: #0056B3; }"
+        )
         self.check_button.clicked.connect(self.check_weather)
         layout.addWidget(self.check_button)
 
         self.weather_text = QTextEdit()
+        self.weather_text.setFont(font)
         layout.addWidget(self.weather_text)
 
     def check_weather(self):

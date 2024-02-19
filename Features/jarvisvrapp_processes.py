@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QTextEdit, QMessageBox
 import psutil
 
-class ProcessesDialog(QDialog):  # Change class name to ProcessesDialog
+class ProcessesDialog(QDialog):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Running Processes")
@@ -9,6 +9,17 @@ class ProcessesDialog(QDialog):  # Change class name to ProcessesDialog
 
         self.process_text = QTextEdit()
         layout.addWidget(self.process_text)
+
+        self.setStyleSheet(
+            """
+            QTextEdit {
+                padding: 10px;
+                border: 2px solid #D3D3D3;
+                border-radius: 5px;
+                font-size: 14px;
+            }
+            """
+        )
 
         self.display_processes()
 

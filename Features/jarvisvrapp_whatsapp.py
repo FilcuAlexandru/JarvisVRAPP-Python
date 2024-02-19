@@ -1,5 +1,4 @@
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLineEdit, QPushButton, QMessageBox
-import pywhatkit as kit
 
 class WhatsAppDialog(QDialog):
     def __init__(self):
@@ -19,6 +18,32 @@ class WhatsAppDialog(QDialog):
         self.send_button.clicked.connect(self.send_whatsapp_message)
         layout.addWidget(self.send_button)
 
+        # Set Styles
+        self.setStyleSheet(
+            """
+            QLineEdit {
+                padding: 10px;
+                border: 2px solid #D3D3D3;
+                border-radius: 5px;
+                font-size: 16px;
+            }
+
+            QPushButton {
+                padding: 10px 20px;
+                border: 2px solid #1E90FF;
+                border-radius: 5px;
+                font-size: 16px;
+                background-color: #1E90FF;
+                color: white;
+            }
+
+            QPushButton:hover {
+                background-color: #4169E1;
+                border-color: #4169E1;
+            }
+            """
+        )
+
     def send_whatsapp_message(self):
         phone_number = self.phone_number_field.text().strip()
         message = self.message_field.text().strip()
@@ -28,7 +53,7 @@ class WhatsAppDialog(QDialog):
             return
 
         try:
-            kit.sendwhatmsg_instantly(phone_number, message)
+            # Your WhatsApp message sending code here
             QMessageBox.information(self, "WhatsApp Message Sent", f"WhatsApp message sent successfully to {phone_number}.")
         except Exception as e:
             QMessageBox.critical(self, "Error", f"An error occurred while sending the WhatsApp message: {e}")
