@@ -30,16 +30,16 @@ class WhatsAppDialog(QDialog):
 
             QPushButton {
                 padding: 10px 20px;
-                border: 2px solid #1E90FF;
+                border: 2px solid #32CD32; /* Changed to green color */
                 border-radius: 5px;
                 font-size: 16px;
-                background-color: #1E90FF;
+                background-color: #32CD32; /* Changed to green color */
                 color: white;
             }
 
             QPushButton:hover {
-                background-color: #4169E1;
-                border-color: #4169E1;
+                background-color: #228B22; /* Darker green on hover */
+                border-color: #228B22; /* Darker green on hover */
             }
             """
         )
@@ -57,3 +57,4 @@ class WhatsAppDialog(QDialog):
             QMessageBox.information(self, "WhatsApp Message Sent", f"WhatsApp message sent successfully to {phone_number}.")
         except Exception as e:
             QMessageBox.critical(self, "Error", f"An error occurred while sending the WhatsApp message: {e}")
+

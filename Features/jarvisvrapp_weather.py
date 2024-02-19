@@ -37,7 +37,7 @@ class WeatherDialog(QDialog):
         layout.addWidget(self.weather_text)
 
     def check_weather(self):
-        api_key = "YourAPIKey"
+        api_key = "36426e9e61bd50350735a595ac4207c0"
         city_name = self.city_field.text().strip()
 
         if city_name:
