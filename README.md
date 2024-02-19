@@ -66,6 +66,9 @@ Here's an overview of how Jarvis utilizes Python to execute each feature:
    - JarvisVRApp provides users with access to a curated collection of recipes.
    - Users can explore these recipes directly within the application, including details such as ingredients
 
+11. **YTDownloadDialog**:
+   - JarvisVRApp's YouTube Downloader feature allows users to effortlessly download videos from YouTube. Simply paste the URL of the desired YouTube video into the provided field, select the desired format (.mp3/.mp4), and click the download button.
+   - The downloaded video or audio file will be saved in the current folder where the application is located.
 
 ## Installation
 1. **Clone the repository:**
