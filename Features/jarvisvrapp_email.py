@@ -3,10 +3,10 @@ from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLineEdit, QPushButton, QMessa
 class EmailDialog(QDialog):
     def __init__(self, sender_email, smtp_server, smtp_port, sender_password):
         super().__init__()
-        self.sender_email = "alexfilcu97@gmail.com"
+        self.sender_email = "YourE-MailHere"
         self.smtp_server = "smtp.gmail.com"
         self.smtp_port = 587
-        self.sender_password = "yqpv qsia howl tclj"
+        self.sender_password = "YourPasswordHere"
 
         self.setWindowTitle("Send Email")
         layout = QVBoxLayout(self)

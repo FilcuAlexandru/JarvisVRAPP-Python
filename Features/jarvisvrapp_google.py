@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLineEdit, QPushButton, QMessageBox
 from PyQt5.QtGui import QFont
+import webbrowser
 
 class GoogleDialog(QDialog):
     def __init__(self):

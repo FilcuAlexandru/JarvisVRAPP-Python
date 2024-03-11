@@ -11,7 +11,7 @@ from Features.jarvisvrapp_email import EmailDialog
 from Features.jarvisvrapp_whatsapp import WhatsAppDialog
 from Features.jarvisvrapp_google import GoogleDialog
 from Features.jarvisvrapp_processes import ProcessesDialog
-from Features.jarvisvrapp_ytdownload import YTDownloadDialog  # Import the new feature
+from Features.jarvisvrapp_ytdownload import YTDownloadDialog  
 
 class JarvisApp(QMainWindow):
     def __init__(self):
@@ -25,7 +25,7 @@ class JarvisApp(QMainWindow):
         # Label
         self.label = QLabel("Hi, I'm Jarvis, your virtual assistant!")
         self.label.setAlignment(Qt.AlignCenter)
-        self.label.setStyleSheet("font-size: 24px; color: #ffffff;")  # White color and larger font size
+        self.label.setStyleSheet("font-size: 24px; color: #ffffff;")  
         layout.addWidget(self.label)
 
         # Time button
@@ -100,7 +100,7 @@ class JarvisApp(QMainWindow):
         layout.addWidget(self.youtube_button)
 
         # Apply style
-        self.setStyleSheet("background-color: #1a1a1a;")  # Dark background color
+        self.setStyleSheet("background-color: #1a1a1a;")  
 
     def apply_button_style(self, button):
         button.setStyleSheet("""

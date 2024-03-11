@@ -59,7 +59,7 @@ class WeatherDialog(QDialog):
                     current_temperature_celsius = current_temperature - 273.15  # Convert temperature to Celsius
 
                     # Display 2-day forecast
-                    forecast_text = "2-Day Forecast:\n"
+                    forecast_text = "3-Day Forecast:\n"
                     for entry in forecast_data['list'][:8 * 2]:
                         forecast_time = datetime.fromtimestamp(entry['dt']).strftime('%Y-%m-%d %H:%M:%S')
                         forecast_description = entry['weather'][0]['description']
