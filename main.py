@@ -153,10 +153,10 @@ class JarvisApp(QMainWindow):
         MusicPlayer().stop_music()
 
     def send_email(self):
-        sender_email = "alexfilcu97@gmail.com"
+        sender_email = "YourE-Mail"
         smtp_server = "smtp.gmail.com"
         smtp_port = 587
-        sender_password = "yqpv qsia howl tclj"
+        sender_password = "YourPassword"
         dialog = EmailDialog(sender_email, smtp_server, smtp_port, sender_password)
         dialog.exec_()
 
