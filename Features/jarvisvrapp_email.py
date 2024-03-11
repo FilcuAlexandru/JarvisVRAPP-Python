@@ -1,12 +1,15 @@
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLineEdit, QPushButton, QMessageBox
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 class EmailDialog(QDialog):
     def __init__(self, sender_email, smtp_server, smtp_port, sender_password):
         super().__init__()
-        self.sender_email = "YourE-MailHere"
-        self.smtp_server = "smtp.gmail.com"
-        self.smtp_port = 587
-        self.sender_password = "YourPasswordHere"
+        self.sender_email = sender_email
+        self.smtp_server = smtp_server
+        self.smtp_port = smtp_port
+        self.sender_password = sender_password
 
         self.setWindowTitle("Send Email")
         layout = QVBoxLayout(self)
@@ -63,7 +66,21 @@ class EmailDialog(QDialog):
             return
 
         try:
-            # Your email sending code here
+            # Create message container
+            msg = MIMEMultipart()
+            msg['From'] = self.sender_email
+            msg['To'] = receiver_email
+            msg['Subject'] = email_subject
+
+            # Attach body to the email
+            msg.attach(MIMEText(email_body, 'plain'))
+
+            # Connect to SMTP server and send email
+            with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
+                server.starttls()
+                server.login(self.sender_email, self.sender_password)
+                server.sendmail(self.sender_email, receiver_email, msg.as_string())
+
             QMessageBox.information(self, "Email Sent", f"Email sent successfully to {receiver_email}.")
         except Exception as e:
             QMessageBox.critical(self, "Error", f"An error occurred while sending the email: {e}")
